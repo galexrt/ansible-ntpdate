@@ -13,12 +13,14 @@
     name: ntpd
     state: stopped
   when: ntpdate_enabled and (ansible_distribution != "Debian" and ansible_distribution != "Ubuntu")
+  tags: ntpdate-run
 
 - name: Stop ntpd service (deb)
   service:
     name: ntp
     state: stopped
   when: ntpdate_enabled and (ansible_distribution == "Debian" or ansible_distribution == "Ubuntu")
+  tags: ntpdate-run
 
 - name: Execute ntpdate runs
   command: "ntpdate -s {{ ntpdate_server|default('0.pool.ntp.org') }}"
@@ -28,3 +30,4 @@
   with_sequence:
     count: "{{ ntpdate_runs|int }}"
   when: ntpdate_enabled
+  tags: ntpdate-run
