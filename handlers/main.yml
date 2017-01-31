@@ -1,0 +1,13 @@
+---
+# handlers file for ansible-ntpdate
+- name: start ntpd (rhel)
+  service:
+    name: ntpd
+    state: started
+  when: ansible_distribution != "Debian" and ansible_distribution != "Ubuntu"
+
+- name: start ntpd (deb)
+  service:
+    name: ntp
+    state: started
+  when: ansible_distribution == "Debian" or ansible_distribution == "Ubuntu"
