@@ -1,7 +1,9 @@
 ansible-ntpdate
 ===============
 
+[![Build Status](https://travis-ci.org/galexrt/ansible-ntpdate.svg?branch=master)](https://travis-ci.org/galexrt/ansible-ntpdate)
 
+Ansible role for running ntpdate.
 
 Requirements
 ------------
@@ -21,18 +23,19 @@ A list of other roles hosted on Galaxy should go here, plus any details in regar
 Example Playbook
 ----------------
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
-
-    - hosts: servers
-      roles:
-         - { role: username.rolename, x: 42 }
+To use this role you add the following as the name of the role:
+```
+- hosts: servers
+  roles:
+    - { role: galexrt.ntpdate, ntpdate_run: true, ntpdate_runs: 5 }
+```
 
 License
 -------
 
-BSD
+MIT
 
 Author Information
 ------------------
 
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+If you have problems with the role, feel free to create an issue on Github or contact me by mail.
