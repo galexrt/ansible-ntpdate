@@ -7,6 +7,7 @@
   with_items:
    - ntpdate
   when: ntpdate_enabled
+  tags: install
 
 - name: Stop ntpd service (rhel)
   service:
