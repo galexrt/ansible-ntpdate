@@ -1,5 +1,5 @@
 ---
 # defaults file for ansible-ntpdate
-ntpdate_run: true
+ntpdate_enabled: true
 ntpdate_runs: 3
 ntpdate_server: "0.pool.ntp.org"
