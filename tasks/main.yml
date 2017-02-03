@@ -28,7 +28,6 @@
   notify:
     - start ntpd (rhel)
     - start ntpd (deb)
-  with_sequence:
-    count: "{{ ntpdate_runs|int }}"
+  with_sequence: count="{{ ntpdate_runs|int }}"
   when: ntpdate_enabled
   tags: ntpdate-run
