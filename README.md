@@ -6,7 +6,7 @@ ansible-ntpdate
 Ansible role for running ntpdate.
 
 Install
-------------
+-------
 
 ```
 ansible-galaxy install galexrt.ansible-ntpdate
