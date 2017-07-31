@@ -1,0 +1,30 @@
+# -> https://github.com/geerlingguy/ansible-role-postgresql/tree/master/tests
+
+---
+services: docker
+dist: xenial
+
+env:
+  - distro: ubuntu1604
+  - distro: ubuntu1404
+  - distro: debian9
+  - distro: debian8
+  - distro: centos6
+  - distro: centos7
+
+script:
+  # Configure test script so we can run extra tests after playbook is run.
+  - export container_id=$(date +%s)
+  - export cleanup=false
+  - export test_idempotence=false
+  - export playbook=travis.yml
+
+  # Download test shim.
+  - wget -O ${PWD}/tests/test.sh https://gist.githubusercontent.com/roquie/d45d5cfc33adedc85d268a7aa5231f3c/raw/d8b815b73b90972c91c8c61213895ddf69d054e7/ansible-role-test.sh
+  - chmod +x ${PWD}/tests/test.sh
+
+  # Run tests.
+  - ${PWD}/tests/test.sh
+
+notifications:
+  webhooks: https://galaxy.ansible.com/api/v1/notifications/
