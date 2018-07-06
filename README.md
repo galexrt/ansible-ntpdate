@@ -5,6 +5,8 @@ ansible-ntpdate
 
 Ansible role for running ntpdate.
 
+**NOTE** ntp must be installed on the target servers! This role tries to stop the ntp(d) daemon (depending on the host OS) and will fail if ntp(d) is not installed.
+
 Install
 -------
 
