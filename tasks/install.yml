@@ -1,0 +1,7 @@
+---
+- name: Install ntpdate package
+  action: "{{ ansible_pkg_mgr }}"
+  args:
+    name: ntpdate
+    state: present
+  tags: install
