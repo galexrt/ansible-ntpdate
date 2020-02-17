@@ -1,6 +1,6 @@
 ---
 - name: Install ntpdate package
   package:
-    name: ntpdate
+    name: "{{ ntpdate_packages }}"
     state: present
   tags: install
