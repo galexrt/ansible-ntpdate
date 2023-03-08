@@ -18,7 +18,7 @@
   ignore_errors: true
 
 - name: Execute ntpdate runs
-  command: "ntpdate -s {{ ntpdate_server|default('0.pool.ntp.org') }}"
+  ansible.builtin.command: "ntpdate -s {{ ntpdate_server|default('0.pool.ntp.org') }}"
   notify:
     - start ntpd (rhel)
     - start ntpd (deb)
