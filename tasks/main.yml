@@ -1,5 +1,6 @@
 ---
-- include_tasks: install.yml
+- ansible.builtin.include_tasks:
+    file: install.yml
 
 - name: Stop ntpd service (rhel)
   service:
